@@ -2,12 +2,14 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src/ShiftRegister595.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/SevenSegment4Digits.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/ShiftRegister595.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/SevenSegment4Digits.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/Sensor/Sensor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/Sensor/Sensor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/Drive/Drive.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/Drive/Drive.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/Motor/Motor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib/Motor/Motor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeListsPrivate.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />

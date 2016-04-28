@@ -50,4 +50,4 @@ add_custom_target(
 # To enable code auto-completion, please specify path
 # to main source file (*.c, *.cpp) and uncomment line below
 #
-add_executable(Klaun src/main.cpp src/SevenSegment4Digits.cpp src/ShiftRegister595.cpp)
+add_executable(Klaun src/main.cpp lib/Motor/Motor.cpp lib/Motor/Motor.h lib/Drive/Drive.cpp lib/Drive/Drive.h lib/Sensor/Sensor.cpp lib/Sensor/Sensor.h)

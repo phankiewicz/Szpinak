@@ -1,38 +1,59 @@
 #include "Arduino.h"
-#include "ShiftRegister595.h"
-#include "SevenSegment4Digits.h"
+//TODO del the following
+#include "../lib/Sensor/Sensor.h"
+//TODO till here
+#include <Sensor.h>
 
+Sensor sensor;
+//eksperymenty na silniku
+// Motor 1
+unsigned int dir1PinA = 8;
+unsigned int dir2PinA = 7;
+unsigned int speedPinA = 5; // Needs to be a PWM pin to be able to control motor speed
 
+// Motor 2
+unsigned int dir1PinB = 12;
+unsigned int dir2PinB = 13;
+unsigned int speedPinB = 6; // Needs to be a PWM pin to be able to control motor speed
 
-int digitPins[4] = {3, 2, 1, 0};
-int segmentPins[7]={1,2,3,4,5,6,7};
-const int clockPin = 9;    //74HC595 Pin 11
-const int latchPin = 10;    //74HC595 Pin 12
-const int dataPin = 11;     //74HC595 Pin 14
-const int sensorPin = A0;
-int digitBuffer[4] = {0};
-int sensorData;
+void setup() {  // Setup runs once per reset
+//Define L298N Dual H-Bridge Motor Controller Pins
+  pinMode(dir1PinA,OUTPUT);
+  pinMode(dir2PinA,OUTPUT);
+  pinMode(speedPinA,OUTPUT);
+  pinMode(dir1PinB,OUTPUT);
+  pinMode(dir2PinB,OUTPUT);
+  pinMode(speedPinB,OUTPUT);
 
-
-
-ShiftRegister595 shiftregister(clockPin, latchPin, dataPin);
-SevenSegment4Digits sevensegment(digitPins, shiftregister);
-//SevenSegment sevensegment(digitPins, segmentPins);
-
-void setup() {
-  for (int i = 0; i < 4; i++)
-  {
-    pinMode(digitPins[i], OUTPUT);
-  }
-  pinMode(latchPin, OUTPUT);
-  pinMode(clockPin, OUTPUT);
-  pinMode(dataPin, OUTPUT);
+    sensor.setup();
 }
 
-void loop() {
+void loop()
+{
+  analogWrite(speedPinA, 255);
+  digitalWrite(dir1PinA, HIGH);
+  digitalWrite(dir2PinA, LOW);
 
-  sensorData = analogRead(A4);
-  delay(4);
-  sevensegment.write(sensorData);
+  analogWrite(speedPinB, 255);
+  digitalWrite(dir1PinB, HIGH);
+  digitalWrite(dir2PinB, LOW);
 
+  //for(int i=255; i>=0; --i)
+  //{
+  //  delay(5);
+  //  analogWrite(speedPinA, i);
+  // analogWrite(speedPinB, i);
+  //}
+
+  delay(1000);
+  analogWrite(speedPinA, 0);
+  analogWrite(speedPinB, 0);
+
+  delay(1000);
+  analogWrite(speedPinA, 127);
+  analogWrite(speedPinB, 127);
+
+  delay(1000);
+
+    int value = sensor.getRaw();
 }
