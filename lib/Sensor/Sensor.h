@@ -1,12 +1,12 @@
-#ifndef KLAUN_SENSOR_H
-#define KLAUN_SENSOR_H
+#ifndef KLAUS_SENSOR_H
+#define KLAUS_SENSOR_H
 
+#include "Arduino.h"
 
 class Sensor {
 public:
     int getRaw();
-    void setup();
 };
 
 
-#endif //KLAUN_SENSOR_H
+#endif //KLAUS_SENSOR_H

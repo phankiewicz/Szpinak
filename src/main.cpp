@@ -1,59 +1,53 @@
 #include "Arduino.h"
+//TODO change all “Klaus” to “projectName”
 //TODO del the following
 #include "../lib/Sensor/Sensor.h"
+#include "../lib/Motor/Motor.h"
+#include "../lib/Drive/Drive.h"
 //TODO till here
 #include <Sensor.h>
+#include <Motor.h>
+#include <Drive.h>
 
-Sensor sensor;
-//eksperymenty na silniku
-// Motor 1
-unsigned int dir1PinA = 8;
-unsigned int dir2PinA = 7;
-unsigned int speedPinA = 5; // Needs to be a PWM pin to be able to control motor speed
+//Sensor sensor;
+Drive drive;  //BUG(hw) 13, 8 give high on programming
 
-// Motor 2
-unsigned int dir1PinB = 12;
-unsigned int dir2PinB = 13;
-unsigned int speedPinB = 6; // Needs to be a PWM pin to be able to control motor speed
-
-void setup() {  // Setup runs once per reset
-//Define L298N Dual H-Bridge Motor Controller Pins
-  pinMode(dir1PinA,OUTPUT);
-  pinMode(dir2PinA,OUTPUT);
-  pinMode(speedPinA,OUTPUT);
-  pinMode(dir1PinB,OUTPUT);
-  pinMode(dir2PinB,OUTPUT);
-  pinMode(speedPinB,OUTPUT);
-
-    sensor.setup();
+void setup() {
+    drive.setup();
+    /*pinMode(0, OUTPUT);
+    pinMode(1, OUTPUT);
+    pinMode(2, OUTPUT);*/
 }
 
-void loop()
-{
-  analogWrite(speedPinA, 255);
-  digitalWrite(dir1PinA, HIGH);
-  digitalWrite(dir2PinA, LOW);
+void loop() {
 
-  analogWrite(speedPinB, 255);
-  digitalWrite(dir1PinB, HIGH);
-  digitalWrite(dir2PinB, LOW);
+    /*digitalWrite(0, HIGH);
+    delay(500);
+    digitalWrite(1, HIGH);
+    delay(500);
+    digitalWrite(2, HIGH);
+    delay(500);
 
-  //for(int i=255; i>=0; --i)
-  //{
-  //  delay(5);
-  //  analogWrite(speedPinA, i);
-  // analogWrite(speedPinB, i);
-  //}
+    digitalWrite(0, LOW);
+    delay(500);
+    digitalWrite(1, LOW);
+    delay(500);
+    digitalWrite(2, LOW);
+    delay(500);*/
 
-  delay(1000);
-  analogWrite(speedPinA, 0);
-  analogWrite(speedPinB, 0);
+    /*motors[Motor::at(-1)].setSpeed(1);
+    motors[Motor::at(1)].setSpeed(1);
+    delay(2000);
+    motors[Motor::at(-1)].setSpeed(0.5);
+    motors[Motor::at(1)].setSpeed(0.5);
+    delay(4000);*/
 
-  delay(1000);
-  analogWrite(speedPinA, 127);
-  analogWrite(speedPinB, 127);
+    drive.at(-1).setSpeed2(-255);
+    drive.at(1).setSpeed2(-255);
+    delay(2000);
+    drive.at(-1).setSpeed2(-127);
+    drive.at(1).setSpeed2(-127);
+    delay(4000);
 
-  delay(1000);
-
-    int value = sensor.getRaw();
+    //int value = sensor.getRaw();
 }
