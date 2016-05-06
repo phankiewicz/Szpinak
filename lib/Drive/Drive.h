@@ -11,7 +11,7 @@ private:
     Motor *motors[2];
 
 public:
-    Drive();
+    Drive(Motor *, Motor *);
 
     void setup();
 

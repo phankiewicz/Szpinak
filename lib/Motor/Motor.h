@@ -29,7 +29,7 @@ public:
 
     double getSpeed() const;
 
-    void halt(bool);
+    void halt();
 
     void fadeTo(double, unsigned int);
 };

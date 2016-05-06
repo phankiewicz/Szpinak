@@ -49,11 +49,11 @@ double Motor::getSpeed() const {
     return static_cast<double>(this->speed) / 0xFF;
 }
 
-void Motor::halt(bool a = true) {
+void Motor::halt() {
     this->speed = 0;
     analogWrite(speedPin, 0);
-    digitalWrite(dirPins[0], a ? LOW : HIGH);
-    digitalWrite(dirPins[1], a ? LOW : HIGH);
+    digitalWrite(dirPins[0], HIGH);
+    digitalWrite(dirPins[1], HIGH);
 }
 
 void Motor::fadeTo(double speed, unsigned int duration) {

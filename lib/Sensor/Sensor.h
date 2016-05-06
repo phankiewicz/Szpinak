@@ -4,8 +4,14 @@
 #include "Arduino.h"
 
 class Sensor {
+private:
+    uint8_t pin;
 public:
-    int getRaw();
+    Sensor();
+    Sensor(uint8_t);
+    unsigned int getRaw();
+    uint8_t getPin();
+    unsigned int getBin();
 };
 
 
