@@ -17,6 +17,5 @@ uint8_t Sensor::getPin() {
 }
 
 unsigned int Sensor::getBin() {
-    //return getRaw()>675 ? 1: 0;
-    return (getRaw() + 512) / 1024;
+    return (unsigned int) digitalRead(pin);
 }
