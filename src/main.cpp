@@ -17,7 +17,7 @@ int error, previous_error = 0;
 int P = 0, I = 0, D = 0;
 float pidValue;
 float Kp = 18, Ki = 0.0001, Kd = 20;
-int speed = 127;
+int speed = 130;
 
 void read_sensor_values() {
     for (int i = 0; i < 5; ++i)
@@ -85,8 +85,8 @@ void loop() {
     read_sensor_values();
     calculate_pid();
 
-    int leftMotorSpeed = speed + pidValue;
-    int rightMotorSpeed = speed - pidValue;
+    int leftMotorSpeed = (int) (speed + pidValue);
+    int rightMotorSpeed = (int) (speed - pidValue);
 
     for (uint8_t i = 0; i < 3; ++i)
         digitalWrite(i, LOW);
