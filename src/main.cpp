@@ -1,17 +1,12 @@
 #include "Arduino.h"
-//TODO change all “Klaus” to “projectName”
-//TODO del the following
-#include "../lib/Sensor/Sensor.h"
-#include "../lib/Motor/Motor.h"
-#include "../lib/Drive/Drive.h"
-//TODO till here
+
 #include <Sensor.h>
 #include <Motor.h>
 #include <Drive.h>
 
 Sensor sensor[5];
 float sensorsValues[5];
-Drive drive(new Motor(5, 8, 7), new Motor(6, 12, 13));  //BUG(hw) 13, 8 give high on programming
+Drive drive(new Motor(5, 8, 7), new Motor(6, 12, 13));
 
 int error, previous_error = 0;
 int P = 0, I = 0, D = 0;
@@ -97,7 +92,6 @@ void loop() {
     if (error > 0)
         digitalWrite(2, HIGH);
 
-    // The motor speed should not exceed the max PWM value
     if (leftMotorSpeed < 0) leftMotorSpeed = 0;
     if (leftMotorSpeed > 255) leftMotorSpeed = 255;
     if (rightMotorSpeed < 0) rightMotorSpeed = 0;

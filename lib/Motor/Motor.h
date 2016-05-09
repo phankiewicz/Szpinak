@@ -1,5 +1,5 @@
-#ifndef KLAUS_MOTOR_H
-#define KLAUS_MOTOR_H
+#ifndef Szpinak_MOTOR_H
+#define Szpinak_MOTOR_H
 #include "Arduino.h"
 
 class Motor {
@@ -7,10 +7,6 @@ private:
     uint8_t speedPin;
     uint8_t dirPins[2];
     int speed;
-
-    double fadingFunction(double) const;
-
-    double fadingFunctionInv(double) const;
 
 public:
     Motor(uint8_t speedPin, uint8_t dirPin0, uint8_t dirPin1);
@@ -30,8 +26,6 @@ public:
     double getSpeed() const;
 
     void halt();
-
-    void fadeTo(double, unsigned int);
 };
 
-#endif //KLAUS_MOTOR_H
+#endif //Szpinak_MOTOR_H

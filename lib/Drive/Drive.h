@@ -1,9 +1,7 @@
-#ifndef KLAUS_DRIVE_H
-#define KLAUS_DRIVE_H
+#ifndef Szpinak_DRIVE_H
+#define Szpinak_DRIVE_H
 
 #include <Motor.h>
-//TODO delete following
-#include "../Motor/Motor.h"
 
 
 class Drive {
@@ -19,4 +17,4 @@ public:
 };
 
 
-#endif //KLAUS_DRIVE_H
+#endif //Szpinak_DRIVE_H

@@ -12,6 +12,13 @@ Motor::Motor(uint8_t speedPin, uint8_t dirPins[]) {
     this->dirPins[1] = dirPins[1];
 }
 
+Motor::Motor(const Motor &another) {
+    this->speedPin=another.speedPin;
+    this->speed=another.speed;
+    this->dirPins[0]=another.dirPins[0];
+    this->dirPins[1]=another.dirPins[1];
+}
+
 void Motor::setupPins() const {
     pinMode(dirPins[0], OUTPUT);
     pinMode(dirPins[1], OUTPUT);
@@ -54,33 +61,4 @@ void Motor::halt() {
     analogWrite(speedPin, 0);
     digitalWrite(dirPins[0], HIGH);
     digitalWrite(dirPins[1], HIGH);
-}
-
-void Motor::fadeTo(double speed, unsigned int duration) {
-    double start = fadingFunctionInv(this->speed);
-    double end = fadingFunctionInv(speed * 255);
-    double step = (end - start) / static_cast<double>(duration);
-    double x = start;
-    while (/*TODO stop condition*/ true) {
-        this->speed = static_cast<int>(fadingFunction(x));
-        setSpeed(this->speed * 255);
-        x += step;
-        //TODO delay
-    }
-    //TODO strict
-}
-
-double Motor::fadingFunction(double x) const {
-    return x; //TODO proper function
-}
-
-double Motor::fadingFunctionInv(double x) const {
-    return x; //TODO proper function
-}
-
-Motor::Motor(const Motor &another) {
-    this->speedPin=another.speedPin;
-    this->speed=another.speed;
-    this->dirPins[0]=another.dirPins[0];
-    this->dirPins[1]=another.dirPins[1];
 }

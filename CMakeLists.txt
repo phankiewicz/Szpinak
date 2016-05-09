@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project(Klaus)
+project(Szpinak)
 
 include(CMakeListsPrivate.txt)
 
@@ -50,4 +50,4 @@ add_custom_target(
 # To enable code auto-completion, please specify path
 # to main source file (*.c, *.cpp) and uncomment line below
 #
-add_executable(Klaus src/main.cpp lib/Motor/Motor.cpp lib/Motor/Motor.h lib/Drive/Drive.cpp lib/Drive/Drive.h lib/Sensor/Sensor.cpp lib/Sensor/Sensor.h)
+add_executable(Szpinak src/main.cpp lib/Motor/Motor.cpp lib/Motor/Motor.h lib/Drive/Drive.cpp lib/Drive/Drive.h lib/Sensor/Sensor.cpp lib/Sensor/Sensor.h)
