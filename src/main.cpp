@@ -11,8 +11,8 @@ Drive drive(new Motor(5, 8, 7), new Motor(6, 12, 13));
 int error, previous_error = 0;
 int P = 0, I = 0, D = 0;
 float pidValue;
-float Kp = 18, Ki = 0.0001, Kd = 20;
-int speed = 130;
+float Kp = 100, Ki = 0.001, Kd = 40;
+int speed = 255;
 
 void read_sensor_values() {
     for (int i = 0; i < 5; ++i)
@@ -92,9 +92,9 @@ void loop() {
     if (error > 0)
         digitalWrite(2, HIGH);
 
-    if (leftMotorSpeed < 0) leftMotorSpeed = 0;
+    if (leftMotorSpeed < -75) leftMotorSpeed = -75;
     if (leftMotorSpeed > 255) leftMotorSpeed = 255;
-    if (rightMotorSpeed < 0) rightMotorSpeed = 0;
+    if (rightMotorSpeed < -75) rightMotorSpeed = -75;
     if (rightMotorSpeed > 255) rightMotorSpeed = 255;
 
     drive.at(-1).setSpeed2(leftMotorSpeed);
